@@ -1,0 +1,75 @@
+*, body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, p {
+    text-align: center;
+}
+
+h1, h2 {
+    margin: 20px auto;
+}
+
+header {
+    display: block;
+    width: 90%;
+    margin: 0 auto 40px auto;
+    border-bottom: 2px solid black;
+}
+
+ul {
+    /*display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;*/
+    margin: 20px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px 40px;
+}
+
+li {
+    display: grid;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+    
+}
+
+img {
+    width: 300px;
+    margin: 0 auto;
+}
+
+p {
+    margin: 20px 0 20px;
+}
+
+
+
+main {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;;
+}
+
+
+main button {
+    margin: 30px auto 10px auto;
+    display: block;
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+
+
+
+
