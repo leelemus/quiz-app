@@ -184,7 +184,7 @@ function displayAnswer() {
         }
 
         $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
-            <h2>RIGHT! WRONG! <a href="./answer.html">This link</a>.</h2>
+            <h2>RIGHT! WRONG!</h2>
             <p>Explanation on why the answer is the answer. </p>
             <p>choice: ${value}</p>
             <p>answer: ${analyseAnswer.questionCorrectAnswer}</p>
