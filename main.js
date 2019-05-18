@@ -125,6 +125,7 @@ let testScore = true;
 function quizStarter() {
     $('#quiz').on('click',`#js-quizStarter-button`, event => {
         questionIndex = 0;
+        score = 0;
         renderHeader();
         renderQuestion();
     });
@@ -173,17 +174,15 @@ function displayAnswer() {
             score++; 
             renderHeader();
         }
-
-        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/  Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
+        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
         <h2>RIGHT! WRONG! <a href="./answer.html">This link</a>.</h2>
         <p>Explanation on why the answer is the answer. </p>
 
-        <button id="js-nextQuestion">
-            GO TO NEXT QUESTION
-        </button>`); 
+            <button id="js-nextQuestion">
+                GO TO NEXT QUESTION
+            </button>
+        `); 
     });
-
-
 }
 
 
