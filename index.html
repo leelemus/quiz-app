@@ -5,19 +5,21 @@
             <meta name="viewport" content="width=device-width"> 
             <meta name="description" content="Quiz app wireframe.">
             <link rel="stylesheet" href="./main.css">
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="./main.js"></script>
+            
     </head>
     <body>
         <header>
-            <h1>Logo/Title</h1>
+            <h1>So you think you are a road bike nerd?</h1>
+            <div id="scoreboard"></div>
         </header>
         <main>
-            <section>
+            <section id="quiz">
                 <p>Sample text describing app. <a href="./question.html">This link</a> takes you to the next wireframe.</p>
-                <form method="get" action="./question.html">
-                    <button>
-                        START
-                    </button>
-                </form>
+                <button id="js-quizStarter-button">
+                    START
+                </button>
             </section>
         </main>
     </body>
