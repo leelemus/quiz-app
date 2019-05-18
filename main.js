@@ -108,12 +108,16 @@ function displayResults {
 
 const questionArray = [
     {
-        questionNumber : 1,
-        questionTitle : 'What type of bike is used to compete at the Tour de France?'
+        questionImage : 'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fdarkroom-cdn.s3.amazonaws.com%2F2017%2F07%2FAFP-Getty_TOPSHOT-CYCLING-FRA-TDF2017-FANS.jpg&f=1',
+        questionTitle : 'What type of bike is used to compete at the Tour de France?',
+        questionAnswers: ['Track','Fatbike','Tricycle','Road'],
+        questionCorrectAnswer : 'Road'
     },
     {
-        questionNumber : 2,
-        questionTitle : 'What type of bike do you race in a velodrome with?'
+        questionImage : 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2015%2F07%2Ftour-de-france-crash.jpg%3Fquality%3D85&f=1',
+        questionTitle : 'What type of bike do you race in a velodrome with?',
+        questionAnswers: ['Gravel','Triathlon','Track','Cyclocross'],
+        questionCorrectAnswer : 'Track'
     }
 ];
 
@@ -148,47 +152,51 @@ function renderHeader() {
     $('#scoreboard').html(
     `<section>
         <ul>
-            <li>Question: ${questionCounter}/10</li>
+            <li>Question: ${questionCounter}/${questionArray.length}</li>
             <li>Score: ${score}</li>
         </ul>
     </section>`);
 }
 
 function renderQuestion() {
-    $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
-    <h3>Sample question. Sample Text</h3>
-                <ul>
-                    <li>Answer 1</li>
-                    <li>Answer 2</li>
-                    <li>Answer 3</li>
-                    <li>Answer 4</li>
-                </ul>
-                <button id="js-chosenAnswer">
-                    SUBMIT ANSWER
-                </button>`);
+
+    const question2Render = questionArray[questionIndex];
+
+    $('#quiz').html(`<img src="${question2Render.questionImage}" alt="placeholder image" />
+    <h3>${question2Render.questionTitle}</h3>
+                <form id="answerList">
+                    <input type="radio" value="${question2Render.questionAnswers[0]}" name="answerList">${question2Render.questionAnswers[0]}<br>
+                    <input type="radio" value="${question2Render.questionAnswers[1]}" name="answerList">${question2Render.questionAnswers[1]}<br>
+                    <input type="radio" value="${question2Render.questionAnswers[2]}" name="answerList">${question2Render.questionAnswers[2]} <br>
+                    <input type="radio" value="${question2Render.questionAnswers[3]}" name="answerList">${question2Render.questionAnswers[3]} <br>
+                    <input type="button" id="js-chosen-answer" value="SUBMIT ANSWER"/>
+                </form>`);
 }
 
 function displayAnswer() {
-    $('#quiz').on('click',`#js-chosenAnswer`, event => {
-        if (testScore === true) { 
+    const analyseAnswer = questionArray[questionIndex];
+    $('#quiz').on('click', `#js-chosen-answer`,event => {
+        event.preventDefault();
+        const value = $("form input[type='radio']:checked").val();
+        if (value === analyseAnswer.questionCorrectAnswer) { 
             score++; 
             renderHeader();
         }
-        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
-        <h2>RIGHT! WRONG! <a href="./answer.html">This link</a>.</h2>
-        <p>Explanation on why the answer is the answer. </p>
 
+        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
+            <h2>RIGHT! WRONG! <a href="./answer.html">This link</a>.</h2>
+            <p>Explanation on why the answer is the answer. </p>
+            <p>${value}</p>
             <button id="js-nextQuestion">
                 GO TO NEXT QUESTION
-            </button>
-        `); 
+            </button>`); 
     });
 }
 
 
 function displayResults() {
     $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
-    <h2>FINAL SCORE: ${score}/10</h2>
+    <h2>FINAL SCORE: ${score}/${questionArray.length}</h2>
     <p>Pep talk or congratulations text. Let's restart the quiz!</p>
         <button id="js-quizStarter-button">
             RESTART
