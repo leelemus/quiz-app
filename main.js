@@ -173,24 +173,46 @@ function renderQuestion() {
                 </form>`);
 }
 
-function displayAnswer() {
-    $('#quiz').on('click', `#js-chosen-answer`,event => {
-        let analyseAnswer = questionArray[questionIndex];
-        event.preventDefault();
-        const value = $("form input[type='radio']:checked").val();
-        if (value === analyseAnswer.questionCorrectAnswer) { 
-            score++; 
-            renderHeader();
-        }
+function renderExplanation(correct, value, analyseAnswer) {
 
+    if(correct === true){
         $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
-            <h2>RIGHT! WRONG!</h2>
+            <h2>RIGHT!</h2>
             <p>Explanation on why the answer is the answer. </p>
             <p>choice: ${value}</p>
             <p>answer: ${analyseAnswer.questionCorrectAnswer}</p>
             <button id="js-nextQuestion">
                 GO TO NEXT QUESTION
             </button>`); 
+    } else {
+        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
+            <h2>WRONG!</h2>
+            <p>Explanation on why the answer is the answer. </p>
+            <p>choice: ${value}</p>
+            <p>answer: ${analyseAnswer.questionCorrectAnswer}</p>
+            <button id="js-nextQuestion">
+                GO TO NEXT QUESTION
+            </button>`);  
+    }
+}
+
+function displayAnswer() {
+    $('#quiz').on('click', `#js-chosen-answer`, event => {
+        
+        event.preventDefault();
+
+        let analyseAnswer = questionArray[questionIndex];
+        const value = $("form input[type='radio']:checked").val();
+        let correct = false;
+
+        if (value === analyseAnswer.questionCorrectAnswer) { 
+            score++; 
+            renderHeader();
+            correct = true;
+            renderExplanation(correct, value, analyseAnswer);
+        }
+
+        renderExplanation(correct, value, analyseAnswer);
     });
 }
 
