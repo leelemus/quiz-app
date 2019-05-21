@@ -106,25 +106,45 @@ function displayResults {
 
 */
 
-const questionArray = [
-    {
-        questionImage : 'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fdarkroom-cdn.s3.amazonaws.com%2F2017%2F07%2FAFP-Getty_TOPSHOT-CYCLING-FRA-TDF2017-FANS.jpg&f=1',
-        questionTitle : 'What type of bike is used to compete at the Tour de France?',
-        questionAnswers: ['Track','Fatbike','Tricycle','Road'],
-        questionCorrectAnswer : 'Road'
-    },
-    {
-        questionImage : 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2015%2F07%2Ftour-de-france-crash.jpg%3Fquality%3D85&f=1',
-        questionTitle : 'What type of bike do you race in a velodrome with?',
-        questionAnswers: ['Gravel','Triathlon','Track','Cyclocross'],
-        questionCorrectAnswer : 'Track'
-    }
-];
-
 let questionIndex = 0;
 let score = 0;
 
-let testScore = true;
+const questionArray = [
+    {
+        questionImage : './images/tour-de-france.jpg',
+        questionTitle : 'What type of bike is used to compete at the Tour de France?',
+        questionAnswers: ['Track','Fatbike','Tricycle','Road'],
+        questionCorrectAnswer : 'Road',
+        questionExplanation : 'While some stages require a specialized bike, such as a time-trial stage needing a namesake bike, the road bike is the type of bike that is required to compete with in the Tour de France.'
+    },
+    {
+        questionImage : './images/velodrome.jpg',
+        questionTitle : 'What type of bike do you race in a velodrome with?',
+        questionAnswers: ['Gravel','Triathlon','Track','Cyclocross'],
+        questionCorrectAnswer : 'Track',
+        questionExplanation : 'While you can ride any of these types of bike on a velodrome, the track bike is specifically made to take advatage of the high bank turns and smooth surface of a velodrome.'
+    }
+];
+
+const rankingMessages = [
+    {
+        messageImage: './images/low-score.jpg',
+        message : 'You know that a bicycle has two wheels and it can take you anywhere you can pedal it. Nice! If you want to improve your score, check out wikipedia or search for bike types. Hit RESTART when you are ready.'
+    },
+    {
+        messageImage: './images/medium-score.jpg',
+        message : 'While you are no slouch with figuring out bike types, you still have a bit more left to learn. Do some wikipedia and search for a bit, then come back and hit RESTART to take the quiz again.'
+    },
+    {
+        messageImage: './images/medium-high.jpg',
+        message : 'Wow. You are so close to getting them all right! Take the quiz again and try for a perfect score!'
+    },
+    {
+        messageImage: './images/high-score.jpg',
+        message : 'You are a connoisseur of road bikes. Chapeau!'
+    }
+    
+]
 
 function quizStarter() {
     $('#quiz').on('click',`#js-quizStarter-button`, event => {
@@ -132,18 +152,6 @@ function quizStarter() {
         score = 0;
         renderHeader();
         renderQuestion();
-    });
-}
-
-function nextQuestion () {
-    $('#quiz').on('click', `#js-nextQuestion`, event => {
-        questionIndex++;
-        if (questionIndex < 2) {
-            renderHeader();
-            renderQuestion();
-        } else {
-            displayResults();
-        }
     });
 }
 
@@ -159,72 +167,124 @@ function renderHeader() {
 }
 
 function renderQuestion() {
-
     const question2Render = questionArray[questionIndex];
-
-    $('#quiz').html(`<img src="${question2Render.questionImage}" alt="placeholder image" />
+    const choices2Render = renderChoices();
+    $('#quiz').html(`<img src="${question2Render.questionImage}" alt="${question2Render.questionTitle}" />
     <h3>${question2Render.questionTitle}</h3>
-                <form id="answerList">
-                    <input type="radio" value="${question2Render.questionAnswers[0]}" name="answerList">${question2Render.questionAnswers[0]}<br>
-                    <input type="radio" value="${question2Render.questionAnswers[1]}" name="answerList">${question2Render.questionAnswers[1]}<br>
-                    <input type="radio" value="${question2Render.questionAnswers[2]}" name="answerList">${question2Render.questionAnswers[2]} <br>
-                    <input type="radio" value="${question2Render.questionAnswers[3]}" name="answerList">${question2Render.questionAnswers[3]} <br>
-                    <input type="button" id="js-chosen-answer" value="SUBMIT ANSWER"/>
-                </form>`);
+    ${choices2Render}`);
+
 }
 
-function renderExplanation(correct, value, analyseAnswer) {
-
-    if(correct === true){
-        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
-            <h2>RIGHT!</h2>
-            <p>Explanation on why the answer is the answer. </p>
-            <p>choice: ${value}</p>
-            <p>answer: ${analyseAnswer.questionCorrectAnswer}</p>
-            <button id="js-nextQuestion">
-                GO TO NEXT QUESTION
-            </button>`); 
-    } else {
-        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
-            <h2>WRONG!</h2>
-            <p>Explanation on why the answer is the answer. </p>
-            <p>choice: ${value}</p>
-            <p>answer: ${analyseAnswer.questionCorrectAnswer}</p>
-            <button id="js-nextQuestion">
-                GO TO NEXT QUESTION
-            </button>`);  
+function renderChoices() {
+    const question2Render = questionArray[questionIndex];
+    let renderChoices = `<form id="answerList">`;
+    for (let i =0; i < question2Render.questionAnswers.length; i++) {
+        renderChoices += `<input type="radio" value="${question2Render.questionAnswers[i]}" name="answerList">${question2Render.questionAnswers[i]}<br>`;
     }
+    renderChoices += `<input type="button" id="js-chosen-answer" value="SUBMIT ANSWER"/>
+    </form>`;
+    return renderChoices;
 }
+
+
+
 
 function displayAnswer() {
     $('#quiz').on('click', `#js-chosen-answer`, event => {
-        
+
         event.preventDefault();
 
         let analyseAnswer = questionArray[questionIndex];
-        const value = $("form input[type='radio']:checked").val();
+        const choiceValue = $("form input[type='radio']:checked").val();
         let correct = false;
 
-        if (value === analyseAnswer.questionCorrectAnswer) { 
+        if (choiceValue === analyseAnswer.questionCorrectAnswer) { 
             score++; 
-            renderHeader();
             correct = true;
-            renderExplanation(correct, value, analyseAnswer);
+            renderHeader();
+            renderExplanation(correct, analyseAnswer);
         }
 
-        renderExplanation(correct, value, analyseAnswer);
+        renderExplanation(correct, analyseAnswer);
     });
 }
 
+function renderExplanation(correct, analyseAnswer) {
+    const nextButton = renderNextQuestionButton ();
+
+    if(correct === true){
+        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
+            <h2>CORRECT!</h2>
+            <p>${analyseAnswer.questionExplanation}</p>
+            ${nextButton}`); 
+    } else {
+        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
+            <h2>INCORRECT</h2>
+            <p>${analyseAnswer.questionExplanation}</p>
+            <p>You'll get it right next time!</p>
+            ${nextButton}`);  
+    }
+}
+
+
+
+
+function nextQuestion () {
+    $('#quiz').on('click', `#js-nextQuestion`, event => {
+        questionIndex++;
+        if (questionIndex < questionArray.length) {
+            renderHeader();
+            renderQuestion();
+        } else {
+            displayResults();
+        }
+    });
+}
+
+function renderNextQuestionButton () {
+    let buttonString = "";
+    if (questionIndex < questionArray.length - 1) {
+       buttonString = `<button id="js-nextQuestion">NEXT QUESTION</button>`;
+    } else {
+        buttonString = `<button id="js-nextQuestion">SEE RESULTS</button>`;
+    }
+    return buttonString;    
+}
+
+
+
 
 function displayResults() {
-    $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
+    let rankingResult = renderResultMessage();
+    let rankingResultImage = rankingResult['messageImage'];
+    let rankingResultText = rankingResult['message'];
+    
+    $('#quiz').html(`<img src="${rankingResultImage}" alt="placeholder image" />
     <h2>FINAL SCORE: ${score}/${questionArray.length}</h2>
-    <p>Pep talk or congratulations text. Let's restart the quiz!</p>
+    <p>${rankingResultText}</p>
         <button id="js-quizStarter-button">
             RESTART
         </button>`); 
 }
+
+function renderResultMessage() {
+
+    let rankingResult;
+
+    if (score < (questionArray.length * .5)){
+        rankingResult = rankingMessages[0];
+    } else if (score > (questionArray.length * .7) && score < (questionArray.length * .9)) {
+        rankingResult = rankingMessages[2];
+    }
+    else if (score === questionArray.length) {
+        rankingResult = rankingMessages[3];
+    } else {
+        rankingResult = rankingMessages[1];
+    }
+
+    return rankingResult;
+}
+
 
 
 function quizApp() {
