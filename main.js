@@ -113,7 +113,7 @@ const questionArray = [
     {
         questionImage : './images/tour-de-france.jpg',
         questionTitle : 'What type of bike is used to compete at the Tour de France?',
-        questionAnswers: ['Track','Fatbike','Tricycle','Road'],
+        questionAnswers: ['Track','Fatbike','Cyclocross','Road'],
         questionCorrectAnswer : 'Road',
         questionExplanation : 'While some stages require a specialized bike, such as a time-trial stage needing a namesake bike, the road bike is the type of bike that is required to compete with in the Tour de France.'
     },
@@ -123,6 +123,62 @@ const questionArray = [
         questionAnswers: ['Gravel','Triathlon','Track','Cyclocross'],
         questionCorrectAnswer : 'Track',
         questionExplanation : 'While you can ride any of these types of bike on a velodrome, the track bike is specifically made to take advatage of the high bank turns and smooth surface of a velodrome.'
+    },
+    {
+        questionImage : './images/bmx.jpg',
+        questionTitle : 'What type of bike is used to race in a motocross-like track with?',
+        questionAnswers: ['Triathlon','BMX','Fixed-gear','Track'],
+        questionCorrectAnswer : 'BMX',
+        questionExplanation : 'Invented in South California, the very first BMX bikes were originally modified bicycles inspired by motocross racing. Over time the design was refined to what you see now.'
+    },
+    {
+        questionImage : './images/triathlon.jpg',
+        questionTitle : 'What type of bike is used to compete at Ironman?',
+        questionAnswers: ['BMX','Touring','Fixed-gear','Triathlon'],
+        questionCorrectAnswer : 'Triathlon',
+        questionExplanation : 'The Ironman is won and lost on who can be the most efficient with their energy.  For the 100+ mile bike segment of the race, Ironman athletes are spending as much as 80% of their energy pushing against the wind. A triathlon bike is designed to be as aerodynamic as possible, helping increase energy efficiency.'
+    },
+    {
+        questionImage : './images/cyclocross.jpg',
+        questionTitle : 'What type of bike is made for races where you run up hills and jump over barriers?',
+        questionAnswers: ['Road','BMX','Cyclocross','Touring'],
+        questionCorrectAnswer : 'Cyclocross',
+        questionExplanation : 'Cyclocross racing combines many aspects of road, mountain, and criterium racing. Cyclross bikes are designed to race on pavement, wooded trails, grass, steep hills and obstacles requiring the rider to quickly dismount, carry the bike while navigating the obstruction and remount.'
+    },
+    {
+        questionImage : './images/fatbike.jpg',
+        questionTitle : 'What type of bike do you use to ride in the snow and ice?',
+        questionAnswers: ['Road','Fatbike','Touring','Triathlon'],
+        questionCorrectAnswer : 'Fatbike',
+        questionExplanation : 'Built for wide tires that run very low air pressuree, Fatbikes were initially invented for use in snow and sand. But over time, it has been used for other diverse terrain types including pavement and traditional mountain biking trails.'
+    },
+    {
+        questionImage : './images/fixed-gear.jpg',
+        questionTitle : 'What type of bike has only one gear and no freewheel, meaning not being able to coast?',
+        questionAnswers: ['Fixed-gear','BMX','Triathlon','Gravel'],
+        questionCorrectAnswer : 'Fixed-gear',
+        questionExplanation : 'A fixed-gear bicycle, commonly known as a fixie, is a bicycle that has a drivetrain with no freewheel mechanism. The freewheel was developed early in the history of bicycle design but the fixed-gear bicycle remained the standard for track racing. Recently the "fixie" has become a popular for urban cyclists, offering the advantage of simplicity over a standard multi-geared bicycle.'
+    },
+    {
+        questionImage : './images/e-bike.jpg',
+        questionTitle : 'What type of bike incorporates a battery to assist you pedaling?',
+        questionAnswers: ['Touring','Fatbike','Downhill','E-bike'],
+        questionCorrectAnswer : 'E-bike',
+        questionExplanation : 'An electric bicycle, also known as an e-bike, is a bicycle with an integrated electric motor is used for assisted propulsion. There are many kinds of e-bikes for different applications, from pedal assist mountain bikes to long-distance cargo bikes.'
+    },
+    {
+        questionImage : './images/gravel.jpg',
+        questionTitle : 'What type of bike is made for rough/loose roads and races like the Dirty Kanza?',
+        questionAnswers: ['E-bike','BMX','Gravel','Touring'],
+        questionCorrectAnswer : 'Gravel',
+        questionExplanation : 'An electric bicycle, also known as an e-bike, is a bicycle with an integrated electric motor is used for assisted propulsion. There are many kinds of e-bikes for different applications, from pedal assist mountain bikes to long-distance cargo bikes.'
+    },
+    {
+        questionImage : './images/touring.jpg',
+        questionTitle : 'What type of bike do you use to travel to across the country, carrying everything you need with you?',
+        questionAnswers: ['Downhill','Touring','Fixed-gear','Gravel'],
+        questionCorrectAnswer : 'Touring',
+        questionExplanation : 'A touring bicycle is a bicycle designed or modified to handle bicycle touring. Bicycle touring means self-contained cycling trips for pleasure, adventure, and autonomy rather than sport, commuting, or exercise. Touring can range from single-to multi-day trips, even years.'
     }
 ];
 
@@ -179,7 +235,7 @@ function renderChoices() {
     const question2Render = questionArray[questionIndex];
     let renderChoices = `<form id="answerList">`;
     for (let i =0; i < question2Render.questionAnswers.length; i++) {
-        renderChoices += `<input type="radio" value="${question2Render.questionAnswers[i]}" name="answerList">${question2Render.questionAnswers[i]}<br>`;
+        renderChoices += `<input type="radio" value="${question2Render.questionAnswers[i]}" name="answerList" id="${question2Render.questionAnswers[i]}"><label for="${question2Render.questionAnswers[i]}">${question2Render.questionAnswers[i]}</label><br>`;
     }
     renderChoices += `<input type="button" id="js-chosen-answer" value="SUBMIT ANSWER"/>
     </form>`;
@@ -210,18 +266,20 @@ function displayAnswer() {
 }
 
 function renderExplanation(correct, analyseAnswer) {
+    const question2Render = questionArray[questionIndex];
     const nextButton = renderNextQuestionButton ();
 
     if(correct === true){
-        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
+        $('#quiz').html(`<img src="${question2Render.questionImage}" alt="${question2Render.questionImage}" />
             <h2>CORRECT!</h2>
             <p>${analyseAnswer.questionExplanation}</p>
+            <p>Great job!</p>
             ${nextButton}`); 
     } else {
-        $('#quiz').html(`<img src="https://www.tenbestvpns.com/wp-content/uploads/2017/06/Watch-Tour-de-France-live-stream.jpg" alt="placeholder image" />
+        $('#quiz').html(`<img src="${question2Render.questionImage}" alt="${question2Render.questionImage}" />
             <h2>INCORRECT</h2>
             <p>${analyseAnswer.questionExplanation}</p>
-            <p>You'll get it right next time!</p>
+            <p>No worries. You'll get it right next time!</p>
             ${nextButton}`);  
     }
 }
@@ -246,7 +304,7 @@ function renderNextQuestionButton () {
     if (questionIndex < questionArray.length - 1) {
        buttonString = `<button id="js-nextQuestion">NEXT QUESTION</button>`;
     } else {
-        buttonString = `<button id="js-nextQuestion">SEE RESULTS</button>`;
+        buttonString = `<button id="js-nextQuestion">SEE FINAL SCORE</button>`;
     }
     return buttonString;    
 }
