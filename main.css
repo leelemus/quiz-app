@@ -41,8 +41,6 @@ p {
     line-height: 1.2em;
 }
 
-
-
 h3 {
     line-height: 1.3em;
     padding-top: 6vw;
@@ -152,6 +150,7 @@ main {
     transition: all 200ms ease-in;
     overflow: hidden;
     font-size: 24px;
+    font-weight: 500;
   }
 
   .answerGroup input:checked ~ label {
@@ -225,14 +224,23 @@ main {
 } 
 
 @media only screen and (min-width: 601px) {
-
+    h3 {
+        padding-top: 3vw;
+        font-size: 32px;
+        color: #eead0a;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
+    h3 {
+        padding-top: 3vw;
+        font-size: 48px;
+        color: #eead0a;
+    }
     .answerGroupContainer {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         flex-wrap: wrap;
         margin: 20px;
     }
@@ -240,7 +248,7 @@ main {
         display: flex;
         flex-direction: row;
         width: 300px;
-        margin: 10px;
+        margin: 25px auto;
     }
     header, main {
         width: 1100px;
