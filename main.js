@@ -217,7 +217,7 @@ function renderHeader() {
     `<h2>So you think you are a road bike nerd?</h2>
     <section>
         <ul class="questionScoreBoard">
-            <li class="questionScore"><p>Question:</p> <p>${questionCounter}/${questionArray.length}</p></li>
+            <li class="questionScore"><p>Question:</p> <p id="questionScoreCounter">${questionCounter}/${questionArray.length}</p></li>
             <li class="questionScore"><p>Score:</p> <p id="questionScoreCounter">${score}</p></li>
         </ul>
     </section>`);

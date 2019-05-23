@@ -19,17 +19,25 @@ h1, h2, h3, h4 {
 
 p {
     text-align: center;
+    line-height: 1.2em;
 }
 
 h1, h2 {
     line-height: 1.3em;
     padding-top: 3vw;
+    padding-bottom: 2vw;
+}
+
+h3 {
+    line-height: 1.3em;
+    padding-top: 6vw;
+    font-size: 24px;
 }
 
 header {
     display: block;
     width: 90%;
-    margin: 10vw auto;
+    margin: 5vw auto;
     padding: 5vw;
     background: linear-gradient(
         rgba(20,20,20, .5), 
@@ -54,81 +62,51 @@ header {
     
 }
 
+#questionScoreCounter {
+    font-weight: 800;
+    color: #02b5ba;
+}
+
 .answerGroup {
     display: flex;
     flex-direction: row;
     margin: 2vw 2vw;
     width: 40%;
     padding: 0;
-    border: 2px solid #ad3e80;
-    border-radius: 5px;
-    background-color: #02b5ba;
 }
 
 .answerGroup label {
-    padding: 1vw;
+    padding: 2vw;
     width: 100%;
+    border: 2px solid #ad3e80;
+    border-radius: 5px;
+    background-color: #02b5ba;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    text-align: right;
+    justify-content: center;
+    text-align: center;
     color: #2d2d2d;
     cursor: pointer;
     z-index: 2;
-    transition: color 200ms ease-in;
-    overflow: hidden;
-  }
-
-  .answerGroup label:before {
-    display: flex;
-    width: 32px;
-    height: 32px;
-    content: '';
-    border: 2px solid #D1D7DC;
-    background-color: #fff;
-    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
-    background-repeat: no-repeat;
-    background-position: 2px 3px;
-    border-radius: 50%;
-    z-index: 2;
-    cursor: pointer;
     transition: all 200ms ease-in;
-}
-
-  .answerGroup label:after {
-      display: flex;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      content: '';
-      background-color: #c4920f;
-      transform: translate(-50%, -50%) scale3d(1, 1, 1);
-      transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
-      opacity: 0;
-      z-index: -1;
+    overflow: hidden;
+    font-size: 24px;
   }
 
   .answerGroup input:checked ~ label {
-      color: #fff;
-  }
-
-  .answerGroup input:checked ~ label:after {
-        transform: translate(-50%, -50%) scale3d(56, 56, 1);
-        opacity: 1;
-  }
-
-  .answerGroup input:checked ~ label:before {
-        background-color: #02b5ba;
-        border-color: #02b5ba;
+    color: #fff;
+    background-color: #c4920f;
+    border: 2px solid #ad3e80;
+    border-radius: 5px;
+    transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
   }
     
-
   .answerGroup input {
-      display: flex;
-      width: 0;
-      z-index: 2;
-      cursor: pointer;
-      visibility: hidden;
+    display: flex;
+    width: 0;
+    z-index: 2;
+    cursor: pointer;
+    visibility: hidden;
   }
 
 .actionButton {
@@ -136,8 +114,8 @@ header {
     margin: 0 auto;
     padding: 2vw 3vw;
     color: #eeeeee;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 24px;
     background-color: #ad3e80;
     border: solid #02b5ba 2px;
     border-radius: 5px;
@@ -176,12 +154,15 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
+    header {
+        margin-bottom: 10px;
+    }
     .answerGroupContainer {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         flex-wrap: wrap;
-        margin: 7vw;
+        margin: 3vw;
     }
     
     .answerGroup {
@@ -214,20 +195,37 @@ main {
     }
 } 
 
-@media only screen and (min-width: 768px) {
-    header {
-        display: block;
-        width: 768px;
-        margin: 40px auto;
-        padding: 10px;
+@media only screen and (min-width: 601px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .answerGroupContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 20px;
     }
-    main {
-        width: 768px;
-        align-items: center;
+    .answerGroup {
+        display: flex;
+        flex-direction: row;
+        width: 300px;
+        margin: 10px;
+    }
+    header, main {
+        width: 1100px;
+    }
+    .actionButton {
+        display: block;
         margin: 0 auto;
-        padding: 10px;
-        margin-bottom: 30px;
-        padding: 10px;
+        padding: 15px 25px;
+        color: #eeeeee;
+        font-weight: 400;
+        font-size: 24px;
+        background-color: #ad3e80;
+        border: solid #02b5ba 2px;
+        border-radius: 5px;
     }
 }
 
