@@ -197,7 +197,7 @@ const rankingMessages = [
     },
     {
         messageImage: './images/high-score.jpg',
-        message : 'You are a connoisseur of road bikes. Chapeau!'
+        message : 'You are a connoisseur of bikes. Chapeau!'
     }
     
 ]
