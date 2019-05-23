@@ -52,8 +52,8 @@ header {
     margin: 5vw auto;
     padding: 5vw;
     background: linear-gradient(
-        rgba(20,20,20, .6), 
-        rgba(20,20,20, .6));
+        rgba(20,20,20, .7), 
+        rgba(20,20,20, .7));
 }
 
 .questionScoreBoard, .answerGroupContainer {
@@ -78,6 +78,38 @@ header {
 #questionScoreCounter {
     font-weight: 800;
     color: #02b5ba;
+}
+
+img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+p {
+    margin: 2vw 0;
+    text-align: justify;
+}
+
+main {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    background: linear-gradient(
+        rgba(20,20,20, .7), 
+        rgba(20,20,20, .7));
+    margin-bottom: 15vw;
+    padding: 5vw;
+}
+
+
+#quiz {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
 }
 
 #answerList {
@@ -137,38 +169,6 @@ header {
     background-color: #ad3e80;
     border: solid #02b5ba 2px;
     border-radius: 5px;
-}
-
-img {
-    width: 100%;
-    margin: 0 auto;
-}
-
-p {
-    margin: 2vw 0;
-    text-align: justify;
-}
-
-main {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    padding: 10px;
-    background: linear-gradient(
-        rgba(20,20,20, .5), 
-        rgba(20,20,20, .5));
-    margin-bottom: 15vw;
-    padding: 5vw;
-}
-
-
-#quiz {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
 }
 
 @media only screen and (max-width: 600px) {
