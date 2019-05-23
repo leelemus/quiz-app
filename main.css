@@ -34,6 +34,12 @@ h3 {
     font-size: 24px;
 }
 
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 header {
     display: block;
     width: 90%;
