@@ -8,18 +8,12 @@ body {
     background: gray url('./images/background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #eeeeee;
-    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 
 h1, h2, h3, h4 {
     text-align: center;
-    font-family: 'Baloo Tammudu', cursive;
-}
-
-p {
-    text-align: center;
-    line-height: 1.2em;
 }
 
 h1, h2 {
@@ -27,6 +21,18 @@ h1, h2 {
     padding-top: 3vw;
     padding-bottom: 2vw;
 }
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+p {
+    text-align: center;
+    line-height: 1.2em;
+}
+
+
 
 h3 {
     line-height: 1.3em;
@@ -65,12 +71,18 @@ header {
     width: 20vw;
     padding: 2vw;
     border: 2px solid #c4920f;
+    border-radius: 5px;
     
 }
 
 #questionScoreCounter {
     font-weight: 800;
     color: #02b5ba;
+}
+
+#answerList {
+    display: flex;
+    flex-direction: column;
 }
 
 .answerGroup {
@@ -116,8 +128,8 @@ header {
   }
 
 .actionButton {
-    display: block;
-    margin: 0 auto;
+    display: flex;
+    margin: 5vw auto;
     padding: 2vw 3vw;
     color: #eeeeee;
     font-weight: 400;
@@ -133,7 +145,7 @@ img {
 }
 
 p {
-    margin: 5vw 0;
+    margin: 2vw 0;
     text-align: justify;
 }
 

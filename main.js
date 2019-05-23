@@ -214,7 +214,7 @@ function quizStarter() {
 function renderHeader() {
     let questionCounter = questionIndex + 1;
     $('#scoreboard').html(
-    `<h2>So you think you are a road bike nerd?</h2>
+    `<h2>Bike Type Quiz</h2>
     <section>
         <ul class="questionScoreBoard">
             <li class="questionScore"><p>Question:</p> <p id="questionScoreCounter">${questionCounter}/${questionArray.length}</p></li>
