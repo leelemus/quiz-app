@@ -321,7 +321,7 @@ function displayResults() {
     $('#quiz').html(`<img src="${rankingResultImage}" alt="placeholder image" />
     <h2>FINAL SCORE: ${score}/${questionArray.length}</h2>
     <p>${rankingResultText}</p>
-        <button id="js-quizStarter-button">
+        <button id="js-quizStarter-button" class="actionButton">
             RESTART
         </button>`); 
 }
