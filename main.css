@@ -52,8 +52,8 @@ header {
     margin: 5vw auto;
     padding: 5vw;
     background: linear-gradient(
-        rgba(20,20,20, .5), 
-        rgba(20,20,20, .5));
+        rgba(20,20,20, .6), 
+        rgba(20,20,20, .6));
 }
 
 .questionScoreBoard, .answerGroupContainer {
