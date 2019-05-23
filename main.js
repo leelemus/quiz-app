@@ -214,10 +214,11 @@ function quizStarter() {
 function renderHeader() {
     let questionCounter = questionIndex + 1;
     $('#scoreboard').html(
-    `<section>
-        <ul>
-            <li>Question: ${questionCounter}/${questionArray.length}</li>
-            <li>Score: ${score}</li>
+    `<h2>So you think you are a road bike nerd?</h2>
+    <section>
+        <ul class="questionScoreBoard">
+            <li class="questionScore"><p>Question:</p> <p>${questionCounter}/${questionArray.length}</p></li>
+            <li class="questionScore"><p>Score:</p> <p id="questionScoreCounter">${score}</p></li>
         </ul>
     </section>`);
 }
@@ -233,11 +234,11 @@ function renderQuestion() {
 
 function renderChoices() {
     const question2Render = questionArray[questionIndex];
-    let renderChoices = `<form id="answerList">`;
+    let renderChoices = `<form id="answerList"><div class="answerGroupContainer">`;
     for (let i =0; i < question2Render.questionAnswers.length; i++) {
-        renderChoices += `<input type="radio" value="${question2Render.questionAnswers[i]}" name="answerList" id="${question2Render.questionAnswers[i]}"><label for="${question2Render.questionAnswers[i]}">${question2Render.questionAnswers[i]}</label><br>`;
+        renderChoices += `<div class="answerGroup"><input type="radio" value="${question2Render.questionAnswers[i]}" name="answerList" id="${question2Render.questionAnswers[i]}"><label for="${question2Render.questionAnswers[i]}">${question2Render.questionAnswers[i]}</label></div>`;
     }
-    renderChoices += `<input type="button" id="js-chosen-answer" value="SUBMIT ANSWER"/>
+    renderChoices += `</div><input type="button" class="actionButton" id="js-chosen-answer" value="SUBMIT ANSWER"/>
     </form>`;
     return renderChoices;
 }
@@ -302,9 +303,9 @@ function nextQuestion () {
 function renderNextQuestionButton () {
     let buttonString = "";
     if (questionIndex < questionArray.length - 1) {
-       buttonString = `<button id="js-nextQuestion">NEXT QUESTION</button>`;
+       buttonString = `<button id="js-nextQuestion" class="actionButton">NEXT QUESTION</button>`;
     } else {
-        buttonString = `<button id="js-nextQuestion">SEE FINAL SCORE</button>`;
+        buttonString = `<button id="js-nextQuestion" class="actionButton">SEE FINAL SCORE</button>`;
     }
     return buttonString;    
 }
