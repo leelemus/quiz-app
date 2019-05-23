@@ -23,8 +23,17 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 60px;
     font-weight: 700;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: 400;
 }
 
 p {
@@ -52,8 +61,8 @@ header {
     margin: 5vw auto;
     padding: 5vw;
     background: linear-gradient(
-        rgba(20,20,20, .7), 
-        rgba(20,20,20, .7));
+        rgba(20,20,20, .6), 
+        rgba(20,20,20, .6));
 }
 
 .questionScoreBoard, .answerGroupContainer {
@@ -88,6 +97,7 @@ img {
 p {
     margin: 2vw 0;
     text-align: justify;
+    font-size: 16px;
 }
 
 main {
@@ -99,8 +109,8 @@ main {
     margin: 0 auto;
     padding: 10px;
     background: linear-gradient(
-        rgba(20,20,20, .7), 
-        rgba(20,20,20, .7));
+        rgba(20,20,20, .6), 
+        rgba(20,20,20, .6));
     margin-bottom: 15vw;
     padding: 5vw;
 }
