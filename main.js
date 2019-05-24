@@ -136,14 +136,14 @@ const questionArray = [
         questionTitle : 'What type of bike is used to compete at Ironman?',
         questionAnswers: ['BMX','Touring','Fixed-gear','Triathlon'],
         questionCorrectAnswer : 'Triathlon',
-        questionExplanation : 'The Ironman is won and lost on who can be the most efficient with their energy.  For the 100+ mile bike segment of the race, Ironman athletes are spending as much as 80% of their energy pushing against the wind. A triathlon bike is designed to be as aerodynamic as possible, helping increase energy efficiency.'
+        questionExplanation : 'For the 100+ mile bike segment of the race, Ironman athletes are spending as much as 80% of their energy pushing against the wind. A triathlon bike is designed to be as aerodynamic as possible, helping increase energy efficiency.'
     },
     {
         questionImage : './images/cyclocross.jpg',
-        questionTitle : 'What type of bike is made for races where you run up hills and jump over barriers?',
+        questionTitle : 'What type of bike do you run up hills and jump over barriers with?',
         questionAnswers: ['Road','BMX','Cyclocross','Touring'],
         questionCorrectAnswer : 'Cyclocross',
-        questionExplanation : 'Cyclocross racing combines many aspects of road, mountain, and criterium racing. Cyclross bikes are designed to race on pavement, wooded trails, grass, steep hills and obstacles requiring the rider to quickly dismount, carry the bike while navigating the obstruction and remount.'
+        questionExplanation : 'Cyclocross combines road, mountain, and criterium racing. Cyclross bikes are designed to for pavement, trails, steep hills and obstacles requiring a quick dismount, carrying the bike while navigating the obstruction, and remounting.'
     },
     {
         questionImage : './images/fatbike.jpg',
@@ -154,10 +154,10 @@ const questionArray = [
     },
     {
         questionImage : './images/fixed-gear.jpg',
-        questionTitle : 'What type of bike has only one gear and no freewheel, meaning not being able to coast?',
+        questionTitle : 'What type of bike does not allow you to coast?',
         questionAnswers: ['Fixed-gear','BMX','Triathlon','Gravel'],
         questionCorrectAnswer : 'Fixed-gear',
-        questionExplanation : 'A fixed-gear bicycle, commonly known as a fixie, is a bicycle that has a drivetrain with no freewheel mechanism. The freewheel was developed early in the history of bicycle design but the fixed-gear bicycle remained the standard for track racing. Recently the "fixie" has become a popular for urban cyclists, offering the advantage of simplicity over a standard multi-geared bicycle.'
+        questionExplanation : 'A fixed-gear bicycle, commonly known as a fixie, has a drivetrain with no freewheel mechanism. Developed early in the history of bicycle design and is used for track racing, the "fixie" has become a popular for urban cyclists looking for a simple bike.'
     },
     {
         questionImage : './images/e-bike.jpg',
@@ -175,21 +175,21 @@ const questionArray = [
     },
     {
         questionImage : './images/touring.jpg',
-        questionTitle : 'What type of bike do you use to travel to across the country, carrying everything you need with you?',
+        questionTitle : 'What type of bike do you use for self-contained long distance trips?',
         questionAnswers: ['Downhill','Touring','Fixed-gear','Gravel'],
         questionCorrectAnswer : 'Touring',
-        questionExplanation : 'A touring bicycle is a bicycle designed or modified to handle bicycle touring. Bicycle touring means self-contained cycling trips for pleasure, adventure, and autonomy rather than sport, commuting, or exercise. Touring can range from single-to multi-day trips, even years.'
+        questionExplanation : 'A touring bicycle is designed to handle bicycle touring. Bicycle touring means self-contained cycling trips for pleasure, adventure, and autonomy rather than sport, commuting, or exercise. Touring can range from single-to multi-day trips, even years.'
     }
 ];
 
 const rankingMessages = [
     {
         messageImage: './images/low-score.jpg',
-        message : 'You know that a bicycle has two wheels and it can take you anywhere you can pedal it. Nice! If you want to improve your score, check out wikipedia or search for bike types. Hit RESTART when you are ready.'
+        message : 'You know that a bicycle has two wheels and it can take you anywhere you can pedal it. Nice! Everyone starts somewhere! Try again to see if you can improve your score.'
     },
     {
         messageImage: './images/medium-score.jpg',
-        message : 'While you are no slouch with figuring out bike types, you still have a bit more left to learn. Do some wikipedia and search for a bit, then come back and hit RESTART to take the quiz again.'
+        message : 'While you are no slouch, you still have a bit more left to learn. Try remembering what you got wrong and try again to improve your score.'
     },
     {
         messageImage: './images/medium-high.jpg',
@@ -197,7 +197,7 @@ const rankingMessages = [
     },
     {
         messageImage: './images/high-score.jpg',
-        message : 'You are a connoisseur of bikes. Chapeau!'
+        message : 'There is no denying it, you are a connoisseur of bikes. Chapeau!'
     }
     
 ]

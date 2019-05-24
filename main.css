@@ -30,10 +30,11 @@ h1 {
 
 h2 {
     font-size: 48px;
+    margin: .4em;
 }
 
 h3 {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 400;
     line-height: 1.3em;
     padding-top: 3vw;
@@ -45,6 +46,7 @@ h3 {
 p {
     text-align: center;
     line-height: 1.2em;
+    font-size: 24px;
 }
 
 
@@ -73,7 +75,7 @@ header {
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin: 0;
+    margin-bottom: 2vw;;
 }
 
 .questionScore {
@@ -108,12 +110,6 @@ img {
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
-}
-
-p {
-    margin: 2vw 0;
-    text-align: justify;
-    font-size: 24px;
 }
 
 main {
@@ -204,11 +200,11 @@ main {
 @media only screen and (max-width: 600px) {
 
     h2 {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     h3{
-        font-size: 32px;
+        font-size: 24px;
     }
     .answerGroupContainer {
         flex-direction: column;
@@ -222,22 +218,28 @@ main {
         width: 90%;
     }
 
+    .answerGroup label {
+        font-size: 18px;
+        padding: 2vw;
+    }
+
     .questionScore {
         flex-direction: column;
         width: 30%;
-        height: 15%;
+        height: 100%;
         padding: 0;
     }
 
     .questionScore p {
         text-align: center;
-        line-height: 1.5em;
+        line-height: 1.3em;
         margin: 0;
-        font-size: 18px;
+        font-size: 16px;
     }
     #questionScoreCounter {
         font-size: 28px;
         margin: 0;
+        line-height: .8em;
     }
 } 
 
