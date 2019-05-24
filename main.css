@@ -55,7 +55,7 @@ header {
     background: linear-gradient(
         rgba(20,20,20, .6), 
         rgba(20,20,20, .6));
-    border: solid 2px #c4920f;
+    border: solid 4px #c4920f;
     border-radius: 5px 5px 0 0;
 }
 
@@ -128,7 +128,7 @@ main {
         rgba(20,20,20, .6));
     margin-bottom: 15vw;
     padding: 5vw;
-    border: solid 2px #c4920f;
+    border: solid 4px #c4920f;
     border-radius: 0 0 5px 5px;
     border-top: hidden;
 }
@@ -208,9 +208,6 @@ main {
 
     h3{
         font-size: 32px;
-    }
-    header {
-        margin-bottom: 10px;
     }
     .answerGroupContainer {
         flex-direction: column;
