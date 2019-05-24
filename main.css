@@ -12,6 +12,11 @@ body {
 }
 
 
+/*********************************/
+/*****     FONT STYLING     ******/
+/*****                      ******/
+/*********************************/
+
 h1, h2, h3, h4 {
     text-align: center;
 }
@@ -50,6 +55,15 @@ p {
 }
 
 
+/*********************************/
+/*****       LAYOUT         ******/
+/*****    MEDIA QUERIES     ******/
+/*********************************/
+
+/*********************************/
+/*  Banner and Scoreboard area   */
+/*********************************/
+
 header {
     display: block;
     width: 90%;
@@ -60,14 +74,6 @@ header {
         rgba(20,20,20, .6));
     border: solid 4px #c4920f;
     border-radius: 5px 5px 0 0;
-}
-
-.answerGroupContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 0;
 }
 
 .questionScoreBoard {
@@ -106,11 +112,9 @@ header {
     color: #02b5ba;
 }
 
-img {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-}
+/*********************************/
+/* Question container and layout */
+/*********************************/
 
 main {
     width: 90%;
@@ -130,19 +134,34 @@ main {
     border-top: hidden;
 }
 
+img {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
 
-#quiz {
+/* styles the question with choices and button */
+
+.quiz { /* main container w/ question */
     display: flex;
     flex-direction: column;
     width: 90%;
 }
 
-#answerList {
+.answerList { /* choices and button */
     display: flex;
     flex-direction: column;
 }
 
-.answerGroup {
+.answerGroupContainer { /* just choices */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.answerGroup { /* styles radio button choice */
     display: flex;
     flex-direction: row;
     margin: 2vw 2vw;
@@ -275,6 +294,10 @@ main {
         width: 1100px;
         margin: 0 auto;
         padding: 20px;
+    }
+
+    header{
+        margin-top: 5%;
     }
 
     main {

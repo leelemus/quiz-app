@@ -106,9 +106,6 @@ function displayResults {
 
 */
 
-let questionIndex = 0;
-let score = 0;
-
 const questionArray = [
     {
         questionImage : './images/tour-de-france.jpg',
@@ -202,7 +199,11 @@ const rankingMessages = [
     
 ]
 
+let questionIndex = 0;
+let score = 0;
+
 function quizStarter() {
+
     $('#quiz').on('click',`#js-quizStarter-button`, event => {
         questionIndex = 0;
         score = 0;
@@ -212,46 +213,69 @@ function quizStarter() {
 }
 
 function renderHeader() {
+    
     let questionCounter = questionIndex + 1;
+
     $('#scoreboard').html(
-    `<h2>Bike Type Quiz</h2>
-    <section>
-        <ul class="questionScoreBoard">
-            <li class="questionScore"><p>Question:</p> <p id="questionScoreCounter">${questionCounter}/${questionArray.length}</p></li>
-            <li class="questionScore"><p>Score:</p> <p id="questionScoreCounter">${score}</p></li>
-        </ul>
-    </section>`);
+        `<h2>Bike Type Quiz</h2>
+        <section>
+            <ul class="questionScoreBoard">
+                <li class="questionScore"><p>Question:</p> <p id="questionScoreCounter">${questionCounter}/${questionArray.length}</p></li>
+                <li class="questionScore">
+                    <p>Score:</p>
+                    <p id="questionScoreCounter">${score}</p>
+                </li>
+            </ul>
+        </section>`
+    );
 }
 
 function renderQuestion() {
+
     const question2Render = questionArray[questionIndex];
     const choices2Render = renderChoices();
-    $('#quiz').html(`<img src="${question2Render.questionImage}" alt="${question2Render.questionTitle}" />
-    <h3>${question2Render.questionTitle}</h3>
-    ${choices2Render}`);
+
+    $('#quiz').html(
+        `<img src="${question2Render.questionImage}" alt="${question2Render.questionTitle}" />
+        <h3>${question2Render.questionTitle}</h3>
+        ${choices2Render}`
+    );
 
 }
 
 function renderChoices() {
+
     const question2Render = questionArray[questionIndex];
-    let renderChoices = `<form id="answerList"><div class="answerGroupContainer">`;
+    let renderChoices = 
+        `<form class="answerList">
+            <div class="answerGroupContainer">`;
+
     for (let i =0; i < question2Render.questionAnswers.length; i++) {
-        renderChoices += `<div class="answerGroup"><input type="radio" value="${question2Render.questionAnswers[i]}" name="answerList" id="${question2Render.questionAnswers[i]}"><label for="${question2Render.questionAnswers[i]}">${question2Render.questionAnswers[i]}</label></div>`;
+        renderChoices += 
+            `<div class="answerGroup">
+                <input type="radio" value="${question2Render.questionAnswers[i]}" name="answerList" id="${question2Render.questionAnswers[i]}">
+                <label for="${question2Render.questionAnswers[i]}">
+                    ${question2Render.questionAnswers[i]}
+                </label>
+            </div>`;
     }
-    renderChoices += `</div><input type="button" class="actionButton" id="js-chosen-answer" value="SUBMIT ANSWER"/>
-    </form>`;
+    renderChoices += 
+            `</div>
+            <input type="button" class="actionButton" id="js-chosen-answer" value="SUBMIT ANSWER"/>
+        </form>`;
+
     return renderChoices;
 }
 
 function displayAnswer() {
+
     $('#quiz').on('click', `#js-chosen-answer`, event => {
 
         event.preventDefault();
-
         let analyseAnswer = questionArray[questionIndex];
         const choiceValue = $("form input[type='radio']:checked").val();
         let correct = false;
-
+        
         if (choiceValue === analyseAnswer.questionCorrectAnswer) { 
             score++; 
             correct = true;
@@ -264,27 +288,35 @@ function displayAnswer() {
 }
 
 function renderExplanation(correct) {
+
     const question2Render = questionArray[questionIndex];
     const nextButton = renderNextQuestionButton ();
 
     if(correct === true){
-        $('#quiz').html(`<img src="${question2Render.questionImage}" alt="${question2Render.questionImage}" />
+        $('#quiz').html(
+            `<img src="${question2Render.questionImage}" alt="${question2Render.questionImage}" />
             <h2>CORRECT!</h2>
             <p>${question2Render.questionExplanation}</p>
             <p>Great job!</p>
-            ${nextButton}`); 
+            ${nextButton}`
+        ); 
     } else {
-        $('#quiz').html(`<img src="${question2Render.questionImage}" alt="${question2Render.questionImage}" />
+        $('#quiz').html(
+            `<img src="${question2Render.questionImage}" alt="${question2Render.questionImage}" />
             <h2>INCORRECT</h2>
             <p>${question2Render.questionExplanation}</p>
             <p>No worries. You'll get it right next time!</p>
-            ${nextButton}`);  
+            ${nextButton}`
+        );  
     }
 }
 
 function nextQuestion () {
+
     $('#quiz').on('click', `#js-nextQuestion`, event => {
+
         questionIndex++;
+
         if (questionIndex < questionArray.length) {
             renderHeader();
             renderQuestion();
@@ -295,12 +327,15 @@ function nextQuestion () {
 }
 
 function renderNextQuestionButton () {
+
     let buttonString = "";
+
     if (questionIndex < questionArray.length - 1) {
        buttonString = `<button id="js-nextQuestion" class="actionButton">NEXT QUESTION</button>`;
     } else {
         buttonString = `<button id="js-nextQuestion" class="actionButton">SEE FINAL SCORE</button>`;
     }
+
     return buttonString;    
 }
 
@@ -308,16 +343,19 @@ function renderNextQuestionButton () {
 
 
 function displayResults() {
+
     let rankingResult = renderResultMessage();
     let rankingResultImage = rankingResult['messageImage'];
     let rankingResultText = rankingResult['message'];
     
-    $('#quiz').html(`<img src="${rankingResultImage}" alt="placeholder image" />
-    <h2>FINAL SCORE: ${score}/${questionArray.length}</h2>
-    <p>${rankingResultText}</p>
+    $('#quiz').html(
+        `<img src="${rankingResultImage}" alt="placeholder image" />
+        <h2>FINAL SCORE: ${score}/${questionArray.length}</h2>
+        <p>${rankingResultText}</p>
         <button id="js-quizStarter-button" class="actionButton">
             RESTART
-        </button>`); 
+        </button>`
+    ); 
 }
 
 function renderResultMessage() {
@@ -337,8 +375,6 @@ function renderResultMessage() {
 
     return rankingResult;
 }
-
-
 
 function quizApp() {
     quizStarter();
