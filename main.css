@@ -34,14 +34,6 @@ h2 {
 h3 {
     font-size: 36px;
     font-weight: 400;
-}
-
-p {
-    text-align: center;
-    line-height: 1.2em;
-}
-
-h3 {
     line-height: 1.3em;
     padding-top: 3vw;
     font-size: 32px;
@@ -49,11 +41,11 @@ h3 {
     color: #eead0a;
 }
 
-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+p {
+    text-align: center;
+    line-height: 1.2em;
 }
+
 
 header {
     display: block;
@@ -297,9 +289,13 @@ main {
         padding: 20px;
     }
 
+    main {
+        margin-bottom: 30px;
+    }
+
     .actionButton {
         display: block;
-        margin: 0 auto;
+        margin: 5vw auto;
         padding: 15px 25px;
         color: #eeeeee;
         font-weight: 400;
