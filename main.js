@@ -282,9 +282,6 @@ function renderExplanation(correct) {
     }
 }
 
-
-
-
 function nextQuestion () {
     $('#quiz').on('click', `#js-nextQuestion`, event => {
         questionIndex++;
