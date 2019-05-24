@@ -243,9 +243,6 @@ function renderChoices() {
     return renderChoices;
 }
 
-
-
-
 function displayAnswer() {
     $('#quiz').on('click', `#js-chosen-answer`, event => {
 
@@ -259,27 +256,27 @@ function displayAnswer() {
             score++; 
             correct = true;
             renderHeader();
-            renderExplanation(correct, analyseAnswer);
+            renderExplanation(correct);
         }
 
-        renderExplanation(correct, analyseAnswer);
+        renderExplanation(correct);
     });
 }
 
-function renderExplanation(correct, analyseAnswer) {
+function renderExplanation(correct) {
     const question2Render = questionArray[questionIndex];
     const nextButton = renderNextQuestionButton ();
 
     if(correct === true){
         $('#quiz').html(`<img src="${question2Render.questionImage}" alt="${question2Render.questionImage}" />
             <h2>CORRECT!</h2>
-            <p>${analyseAnswer.questionExplanation}</p>
+            <p>${question2Render.questionExplanation}</p>
             <p>Great job!</p>
             ${nextButton}`); 
     } else {
         $('#quiz').html(`<img src="${question2Render.questionImage}" alt="${question2Render.questionImage}" />
             <h2>INCORRECT</h2>
-            <p>${analyseAnswer.questionExplanation}</p>
+            <p>${question2Render.questionExplanation}</p>
             <p>No worries. You'll get it right next time!</p>
             ${nextButton}`);  
     }
