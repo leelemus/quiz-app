@@ -157,7 +157,7 @@ const questionArray = [
         questionTitle : 'What type of bike does not allow you to coast?',
         questionAnswers: ['Fixed-gear','BMX','Triathlon','Gravel'],
         questionCorrectAnswer : 'Fixed-gear',
-        questionExplanation : 'A fixed-gear bicycle, commonly known as a fixie, has a drivetrain with no freewheel mechanism. Developed early in the history of bicycle design and is used for track racing, the "fixie" has become a popular for urban cyclists looking for a simple bike.'
+        questionExplanation : 'A fixed-gear bike, better known as fixie, has no freewheel. Used for track racing, the "fixie" has become popular for cyclists looking for a simplicity.'
     },
     {
         questionImage : './images/e-bike.jpg',
@@ -171,14 +171,14 @@ const questionArray = [
         questionTitle : 'What type of bike is made for rough/loose roads and races like the Dirty Kanza?',
         questionAnswers: ['E-bike','BMX','Gravel','Touring'],
         questionCorrectAnswer : 'Gravel',
-        questionExplanation : 'An electric bicycle, also known as an e-bike, is a bicycle with an integrated electric motor is used for assisted propulsion. There are many kinds of e-bikes for different applications, from pedal assist mountain bikes to long-distance cargo bikes.'
+        questionExplanation : 'A gravel bike is a modified road bike that accepts wider tires. The wider tires allow the bike to be comfortably handled in various terrain, such as gravel, dirt, and pavement.'
     },
     {
         questionImage : './images/touring.jpg',
         questionTitle : 'What type of bike do you use for self-contained long distance trips?',
         questionAnswers: ['Downhill','Touring','Fixed-gear','Gravel'],
         questionCorrectAnswer : 'Touring',
-        questionExplanation : 'A touring bicycle is designed to handle bicycle touring. Bicycle touring means self-contained cycling trips for pleasure, adventure, and autonomy rather than sport, commuting, or exercise. Touring can range from single-to multi-day trips, even years.'
+        questionExplanation : 'A touring bicycle is designed for bicycle touring. Bicycle touring are self-contained cycling trips for pleasure, adventure, and autonomy. Touring can range from a single day to years.'
     }
 ];
 
