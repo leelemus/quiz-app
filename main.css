@@ -256,14 +256,14 @@ img {
 
     .questionScore p {
         text-align: center;
-        line-height: 1.3em;
+        line-height: 1.5em;
         margin: 0;
         font-size: 16px;
     }
     #questionScoreCounter {
         font-size: 26px;
         margin: 0;
-        line-height: .8em;
+        line-height: 1em;
     }
     .actionButton {
         margin: 4vw auto;
