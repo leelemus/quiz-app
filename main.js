@@ -127,38 +127,38 @@ function renderHeader() {
 function renderQuestion() {
 
     const question2Render = questionArray[questionIndex];
-    const choices2Render = renderChoices();
+    const questionAnswers2Render = renderQuestionAnswers();
 
     $('#quiz').html(
         `<img src="${question2Render.questionImage}" alt="${question2Render.questionTitle}" />
-        <h3>${question2Render.questionTitle}</h3>
-        ${choices2Render}`
+        ${questionAnswers2Render}`
     );
 
 }
 
-function renderChoices() {
+function renderQuestionAnswers() {
 
-    const question2Render = questionArray[questionIndex];
-    let renderChoices = 
+    const questionAnswers2Render = questionArray[questionIndex];
+    let renderquestionAnswers = 
         `<form class="answerList">
+        <legend>${questionAnswers2Render.questionTitle}</legend>
             <div class="answerGroupContainer">`;
 
-    for (let i =0; i < question2Render.questionAnswers.length; i++) {
-        renderChoices += 
+    for (let i =0; i < questionAnswers2Render.questionAnswers.length; i++) {
+        renderquestionAnswers += 
             `<div class="answerGroup">
-                <input type="radio" value="${question2Render.questionAnswers[i]}" name="answerList" id="${question2Render.questionAnswers[i]}">
-                <label for="${question2Render.questionAnswers[i]}">
-                    ${question2Render.questionAnswers[i]}
+                <input type="radio" value="${questionAnswers2Render.questionAnswers[i]}" name="answerList" id="${questionAnswers2Render.questionAnswers[i]}" required>
+                <label for="${questionAnswers2Render.questionAnswers[i]}">
+                    ${questionAnswers2Render.questionAnswers[i]}
                 </label>
             </div>`;
     }
-    renderChoices += 
+        renderquestionAnswers += 
             `</div>
             <input type="button" class="actionButton" id="js-chosen-answer" value="SUBMIT ANSWER"/>
         </form>`;
 
-    return renderChoices;
+    return renderquestionAnswers;
 }
 
 function displayAnswer() {
