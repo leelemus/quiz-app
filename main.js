@@ -155,7 +155,7 @@ function renderQuestionAnswers() {
     }
         renderquestionAnswers += 
             `</div>
-            <input type="button" class="actionButton" id="js-chosen-answer" value="SUBMIT ANSWER"/>
+            <input type="submit" class="actionButton" id="js-chosen-answer" value="SUBMIT ANSWER"/>
         </form>`;
 
     return renderquestionAnswers;
@@ -163,7 +163,7 @@ function renderQuestionAnswers() {
 
 function displayAnswer() {
 
-    $('#quiz').on('click', `#js-chosen-answer`, event => {
+    $('#quiz').on('submit', `#js-chosen-answer`, event => {
 
         event.preventDefault();
         let analyseAnswer = questionArray[questionIndex];
