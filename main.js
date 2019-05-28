@@ -257,13 +257,13 @@ function renderResultMessage() {
 
     if (score < (questionArray.length * .5)){
         rankingResult = rankingMessages[0];
-    } else if (score > (questionArray.length * .7) && score < (questionArray.length * .9)) {
-        rankingResult = rankingMessages[2];
-    }
-    else if (score === questionArray.length) {
-        rankingResult = rankingMessages[3];
-    } else {
+    } else if (score < (questionArray.length * .7)) {
         rankingResult = rankingMessages[1];
+    }
+    else if (score < (questionArray.length * .9)) {
+        rankingResult = rankingMessages[2];
+    } else {
+        rankingResult = rankingMessages[3];
     }
 
     return rankingResult;
