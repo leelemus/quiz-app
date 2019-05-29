@@ -163,7 +163,7 @@ function renderQuestionAnswers() {
 
 function displayAnswer() {
 
-    $('#quiz').submit(function( event ) {
+    $('#quiz').submit(event => {
         event.preventDefault();
         let analyseAnswer = questionArray[questionIndex];
         const choiceValue = $("form input[type='radio']:checked").val();
