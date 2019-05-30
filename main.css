@@ -228,7 +228,7 @@ img {
     
     h2 {
         font-size: 28px;
-        margin-top: 1em;
+        margin-top: .5em;
     }
 
     h3, legend {
@@ -239,7 +239,7 @@ img {
         flex-direction: column;
         justify-content: space-between;
         flex-wrap: wrap;
-        margin: 3vw;
+        margin: 2vw;
     }
 
     p { 
@@ -268,11 +268,13 @@ img {
         text-align: center;
         line-height: 1.7em;
         margin: 0;
+        padding: 0;
         font-size: 16px;
     }
     #questionScoreCounter {
         font-size: 26px;
         margin: 0;
+        padding: 0;
         line-height: 1.2em;
     }
     .actionButton {
