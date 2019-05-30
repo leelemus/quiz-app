@@ -175,10 +175,8 @@ img {
 
 .answerGroup input {
     display: flex;
-    width: 10px;
+    width: 5px;
     zoom: 0.1;
-    /*cursor: pointer;
-    visibility: hidden;*/
   }
 
 .answerGroup label {
@@ -230,9 +228,11 @@ img {
     
     h2 {
         font-size: 28px;
+        margin-top: 1em;
     }
 
     h3, legend {
+        margin-top: 5px;
         font-size: 24px;
     }
     .answerGroupContainer {
@@ -241,14 +241,19 @@ img {
         flex-wrap: wrap;
         margin: 3vw;
     }
+
+    p { 
+        font-size: 18px;
+        padding: 3px;
+    }
     
     .answerGroup {
         flex-direction: row;
-        width: 90%;
+        width: 100%;
     }
 
     .answerGroup label {
-        font-size: 18px;
+        font-size: 16px;
         padding: 2vw;
     }
 
